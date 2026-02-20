@@ -1,0 +1,237 @@
+Agnóstica 1:
+Questão 1
+using System;
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        
+        
+    }
+    public class veiculo
+        {
+            //quantidade de ocupantes
+        private int quantocup;
+        
+         //quantidade de rodas
+        private int quantrodas;
+        
+         //quantidade maxima de litros
+        private int maxlitros;
+        
+         //quantidade de litros atuais
+        private float quantlitros;
+        
+         //quantidade de consumo médio (em km/litro) de combustível 
+        private float consumomedia;
+        
+        public float cm
+        {
+        get{return consumomedia;}
+        set{ consumomedia = cm;}
+             }
+        
+         //quilometragem atual do veículo
+        private float kmatual;
+        public float kma
+        {
+        get{
+            return kmatual;
+        }
+        set
+        { kmatual = kma;
+            
+        }
+        }
+         //Autonomia do veículo, que identifica a quantidade de Km que ele ainda pode percorrer sem abastecer
+        private float autonomia;
+       public class Carro:veiculo{
+           public Carro(){
+               }
+           public Carro( int qportas, string modelo, int quantocup, int quantrodas, int maxlitros, float consumomedia, int kmatual){
+               this.qportas=qportas;
+               this.modelo=modelo;
+               this.quantocup=quantocup;
+               this.quantrodas=quantrodas;
+               this.maxlitros=maxlitros;
+               this.consumomedia=consumomedia;
+               this.kmatual=kmatual;
+           }
+            public int qportas;
+            public string modelo;
+            public float perrcorrer(float qtdQuilometros){
+                float nkm = kmatual+qtdQuilometros;
+                if(nkm>999999){
+                    return kmatual=999999;
+                }
+                else{
+                return kmatual=nkm;
+                }
+            }
+        }
+        
+        
+}
+}
+
+—-----------------------------------------------------
+Questão 2
+using System;
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        CorpoCeleste a = new CorpoCeleste();
+        float entrada;
+        int i;
+        for (i = 0; i <= 1; i++)
+        {
+            Console.WriteLine("planeta numero:{0}", i);
+            a.posição_ = i;
+            Console.WriteLine("insira a massa do planeta");
+            entrada = float.Parse(Console.ReadLine());
+            a.massa_ = entrada;
+            
+            Console.WriteLine("insira a densidade do planeta");
+            entrada = float.Parse(Console.ReadLine());
+            a.densidade_ = entrada;
+             
+            Console.WriteLine("insira a posição x do planeta");
+            entrada = float.Parse(Console.ReadLine());
+            a.posiçãoX_ = entrada;
+            
+            Console.WriteLine("insira a posição y do planeta");
+            entrada = float.Parse(Console.ReadLine());
+            a.posiçãoY_ = entrada;
+            
+            Console.WriteLine("insira a circunferencciado planeta");
+            entrada = float.Parse(Console.ReadLine());
+            a.circunferencia_ = entrada;
+            
+            a.calcular_Raio(a.circunferencia_);
+            
+
+            Console.WriteLine("a massa do planeta é: {0}", a.massa_);
+            Console.WriteLine("a densdidade do planeta é: {0}", a.densidade_);
+            Console.WriteLine("a posiçãoX do planeta é: {0}", a.posiçãoX_);
+            Console.WriteLine("a posiçãoY do planeta é: {0}", a.posiçãoY_);
+            Console.WriteLine("a circunferencia do planeta é: {0}", a.circunferencia_);
+            Console.WriteLine("o raio do planeta é: {0}", a.raio_);
+
+        }
+        Console.WriteLine("a maior massa é: {0}", a.massa_);
+        Console.WriteLine("do planeta: {0}", a.registroM);
+        Console.WriteLine("ao maior raio é: {0}", a.raio_);
+        Console.WriteLine("do planeta: {0}", a.registroR);
+       Console.WriteLine($"Os mais distantes são o planeta {a.registroDMaior + 1} e o planeta {a.registroDMenor + 1}");
+
+    }
+    public class CorpoCeleste
+    {
+        public float MaiorMassa = 0;
+        public float MaiorDistancia;
+        public float MenorDistancia = float.MaxValue;
+        public float MenorMassa = float.MaxValue;
+        public float MaiorRaio = 0;
+        public float MenorRaio = float.MaxValue;
+        public int registroM = 0;
+        public int registroR = 0;
+        public int registroDMaior;
+        public int registroDMenor;
+        private int posição;
+        public int posição_{
+            get{ return posição;}
+        set{ posição=value;}
+        }
+        private float massa; 
+        public float massa_ {
+
+        get{ return massa;}
+            set
+            {
+                massa = value;
+                if (massa > MaiorMassa) 
+                {
+                    MaiorMassa = massa;
+                    registroM = posição;
+                }
+                if (massa > MenorMassa) 
+                {
+                    MenorMassa = massa; 
+                }
+                }
+            }
+        private float densidade;
+        public float densidade_{
+            get{ return densidade;}
+        set{ densidade=value;}
+        }
+        private float posiçãoX;
+         public float posiçãoX_{
+             get{ return posiçãoX;}
+        set{
+                posiçãoX = value;
+                if (posiçãoX >  MaiorDistancia) 
+                {
+                    MaiorDistancia = posiçãoX;
+                    registroDMaior = posição;
+                }
+                if (posiçãoX > MenorDistancia)
+                {
+                    MenorDistancia = posiçãoX;
+                    registroDMenor = posição;
+                }
+            }
+         }
+        private float posiçãoY; 
+        public float posiçãoY_{
+            get{ return posiçãoY;}
+        set{ posiçãoY=value;}
+        }
+        private float raio; 
+        public float raio_{
+            get{ return raio;}
+        set{
+                raio = value;
+                if (massa > MaiorRaio) 
+                {
+                    MaiorRaio = raio;
+                    registroR = posição;
+                }
+                if (massa > MenorRaio) 
+                {
+                    MenorRaio = raio; 
+                }
+                
+        }
+        }
+        
+        private float circunferencia; 
+        public float circunferencia_{
+            get{ return circunferencia;}
+        set{ circunferencia=value;}
+        }
+        private float area;
+        public float area_{
+            get{ return area;}
+        set{ area=value;}
+        }
+        public CorpoCeleste(){
+            
+        }
+        public CorpoCeleste (float massa, float densidade, float posiçãoX, float posiçãoY, float raio, float circunferencia) {
+            this.massa=massa;
+            this.densidade=densidade;
+            this.posiçãoX=posiçãoX;
+            this.posiçãoY=posiçãoY;
+            this.raio=raio;
+            this.circunferencia=circunferencia;
+        }
+        public float calcular_Raio(float k){
+            raio=k/(2*3.14f);
+            return this.raio;
+        }
+    }
+}
