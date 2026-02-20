@@ -1,0 +1,553 @@
+# Atividades-AED-
+nível fácil 
+1)
+
+using System;
+class Program
+{  
+   static void Main()
+   {
+     Console.Write("informe seu nome: ");
+     string nome = Console.ReadLine();
+     for(int i=0;i<100;i++)  //repete a saída 100 vezes
+        {
+        Console.WriteLine(nome);
+        }
+   }
+}
+
+2)
+
+using System;
+class Program
+{  
+   static void Main()
+   {
+     int n=0;
+     for(int i=0;i<100;i++) 
+        {
+        n=n+1;
+        if (n % 2 != 0) { }
+        else{       
+        Console.WriteLine(n);
+        }
+        }
+   }
+}
+
+3)
+
+using System;
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        for(int i=0;i<5;i++) {
+            
+         Console.WriteLine(new string('*', i));
+        }
+    }
+}
+4)
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        int anterior=0,presente=1,futuro=0;
+        for(int i=0;i<30;i++) {
+        futuro=anterior+presente;
+        anterior=presente;
+        presente=futuro;
+        if(i==0) {presente=0;}
+       Console.Write(presente+ ",");
+       
+        }
+    }
+}
+
+nível médio
+
+1)
+
+using System;
+
+namespace AreaRetangulo
+{
+    public class Retangulo
+    {
+        // Atributos privados
+        private double baseRet;
+        private double altura;
+
+        // Construtor
+        public Retangulo(double baseRet, double altura)
+        {
+            this.baseRet = baseRet;
+            this.altura = altura;
+        }
+
+        // Método para calcular a área
+        public double CalcularArea()
+        {
+            return baseRet * altura;
+        }
+
+        // Método para exibir os dados
+        public void ExibirDados()
+        {
+            Console.WriteLine("Base: " + baseRet);
+            Console.WriteLine("Altura: " + altura);
+            Console.WriteLine("Área: " + CalcularArea());
+        }
+    }
+}
+
+
+
+
+namespace AreaRetangulo
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Informe a base: ");
+            double baseRet = Convert.ToDouble(Console.ReadLine());
+
+            Console.Write("Informe a altura: ");
+            double altura = Convert.ToDouble(Console.ReadLine());
+
+            Retangulo ret = new Retangulo(baseRet, altura);
+
+            Console.WriteLine("\nDados do Retângulo:");
+            ret.ExibirDados();
+
+            Console.ReadKey();
+        }
+    }
+}
+
+
+2)
+
+using System;
+
+class Ponto
+{
+    private double x;
+    private double y;
+
+    public double X
+    {
+        get { return x; }
+        set { x = value; }
+    }
+
+    public double Y
+    {
+        get { return y; }
+        set { y = value; }
+    }
+
+    public Ponto()
+    {
+        x = 0;
+        y = 0;
+    }
+
+    public Ponto(double x, double y)
+    {
+        this.x = x;
+        this.y = y;
+    }
+
+    public Ponto(Ponto p)
+    {
+        this.x = p.X;
+        this.y = p.Y;
+    }
+
+    public void Exibir()
+    {
+        Console.WriteLine("Ponto (" + x + ", " + y + ")");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Ponto p1 = new Ponto();
+        Ponto p2 = new Ponto(3, 4);
+        Ponto p3 = new Ponto(p2);
+
+        p1.Exibir();
+        p2.Exibir();
+        p3.Exibir();
+    }
+}
+
+
+
+3)
+
+
+using System;
+
+class Pessoa
+{
+    private string nome;
+    private int idade;
+
+    public string Nome
+    {
+        get { return nome; }
+        set { nome = value; }
+    }
+
+    public int Idade
+    {
+        get { return idade; }
+        set { idade = value; }
+    }
+
+    public Pessoa() { }
+
+    public Pessoa(string nome, int idade)
+    {
+        this.nome = nome;
+        this.idade = idade;
+    }
+
+    public void ExibirDados()
+    {
+        Console.WriteLine("Nome: " + nome + " | Idade: " + idade);
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Pessoa[] pessoas = new Pessoa[3];
+
+        for (int i = 0; i < 3; i++)
+        {
+            Console.Write("Nome: ");
+            string nome = Console.ReadLine();
+
+            Console.Write("Idade: ");
+            int idade = int.Parse(Console.ReadLine());
+
+            pessoas[i] = new Pessoa(nome, idade);
+        }
+
+        Pessoa maisVelha = pessoas[0];
+
+        for (int i = 1; i < 3; i++)
+        {
+            if (pessoas[i].Idade > maisVelha.Idade)
+                maisVelha = pessoas[i];
+        }
+
+        Console.WriteLine("\nPessoa com maior idade:");
+        maisVelha.ExibirDados();
+    }
+}
+
+
+4)
+
+using System;
+
+class Animal
+{
+private string nome;
+private string tipo;
+
+public string Nome
+{
+get { return nome; }
+set { nome = value; }
+}
+
+public string Tipo
+{
+get { return tipo; }
+set
+{
+if (value.ToLower() == "cachorro" ||
+value.ToLower() == "gato" ||
+value.ToLower() == "peixe")
+tipo = value.ToLower();
+else
+tipo = "peixe";
+}
+}
+}
+
+class Program
+{
+static void Main()
+{
+Animal[] animais = new Animal[5];
+int cachorro = 0, gato = 0, peixe = 0;
+
+for (int i = 0; i < 5; i++)
+{
+animais[i] = new Animal();
+
+Console.Write("Nome do animal: ");
+animais[i].Nome = Console.ReadLine();
+
+Console.Write("Tipo (cachorro/gato/peixe): ");
+animais[i].Tipo = Console.ReadLine();
+
+if (animais[i].Tipo == "cachorro") cachorro++;
+else if (animais[i].Tipo == "gato") gato++;
+else peixe++;
+}
+
+Console.WriteLine("\nCachorros: " + cachorro);
+Console.WriteLine("Gatos: " + gato);
+Console.WriteLine("Peixes: " + peixe);
+}
+}
+
+nível difícil 
+
+1)
+
+using System;
+
+class Lampada
+{
+private bool ligada;
+private bool queimada;
+private int potencia;
+private int voltagem;
+private Random random = new Random();
+
+public Lampada(int potencia, int voltagem)
+{
+this.potencia = potencia;
+this.voltagem = voltagem;
+ligada = false;
+queimada = false;
+}
+
+public void Ligar()
+{
+if (!queimada)
+{
+if (random.Next(100) < 15)
+{
+queimada = true;
+ligada = false;
+Console.WriteLine("A lâmpada queimou!");
+}
+else
+{
+ligada = true;
+}
+}
+}
+
+public void Desligar()
+{
+if (!queimada)
+ligada = false;
+}
+
+public string ObterEstado()
+{
+if (queimada) return "Queimada";
+return ligada ? "Ligada" : "Desligada";
+}
+
+public int ObterPotencia()
+{
+return potencia;
+}
+
+public void AlterarPotencia(int potencia)
+{
+this.potencia = potencia;
+}
+
+public int ObterVoltagem()
+{
+return voltagem;
+}
+
+public void AlterarVoltagem(int voltagem)
+{
+this.voltagem = voltagem;
+}
+}
+
+class TesteLampada
+{
+static void Main()
+{
+Lampada l = new Lampada(60, 220);
+
+Console.WriteLine("Estado: " + l.ObterEstado());
+Console.WriteLine("Potência: " + l.ObterPotencia());
+Console.WriteLine("Voltagem: " + l.ObterVoltagem());
+
+l.Ligar();
+
+Console.WriteLine("\nApós ligar:");
+Console.WriteLine("Estado: " + l.ObterEstado());
+Console.WriteLine("Potência: " + l.ObterPotencia());
+Console.WriteLine("Voltagem: " + l.ObterVoltagem());
+}
+}
+
+
+2)
+
+using System;
+
+class Extrato
+{
+private DateTime data;
+private double valor;
+
+public Extrato(DateTime data, double valor)
+{
+this.data = data;
+this.valor = valor;
+}
+
+public string ObterDados()
+{
+return data.ToString("dd/MM/yyyy HH:mm") + " | Valor: " + valor;
+}
+}
+
+class Cartao
+{
+private string numero;
+private string validade;
+
+public Cartao(string numero, string validade)
+{
+this.numero = numero;
+this.validade = validade;
+}
+
+public string ObterNumero()
+{
+return numero;
+}
+
+public string ObterValidade()
+{
+return validade;
+}
+}
+
+class Conta
+{
+private string nomeCliente;
+private int numeroConta;
+private double saldo;
+private Extrato[] extratos = new Extrato[1000];
+private int indice = 0;
+private Cartao cartao;
+
+public Conta(string nomeCliente, int numeroConta, double saldoInicial, Cartao cartao)
+{
+this.nomeCliente = nomeCliente;
+this.numeroConta = numeroConta;
+this.saldo = saldoInicial;
+this.cartao = cartao;
+}
+
+public void Depositar(double valor)
+{
+saldo += valor;
+extratos[indice++] = new Extrato(DateTime.Now, valor);
+}
+
+public void Sacar(double valor)
+{
+if (saldo >= valor)
+{
+saldo -= valor;
+extratos[indice++] = new Extrato(DateTime.Now, -valor);
+}
+}
+
+public void SacarComCartao(string numero, string validade, double valor)
+{
+if (cartao.ObterNumero() == numero &&
+cartao.ObterValidade() == validade)
+{
+Sacar(valor);
+}
+}
+
+public double ObterSaldo()
+{
+return saldo;
+}
+
+public int ObterNumero()
+{
+return numeroConta;
+}
+
+public string ObterNomeCliente()
+{
+return nomeCliente;
+}
+
+public void ExibirExtrato()
+{
+for (int i = 0; i < indice; i++)
+{
+Console.WriteLine(extratos[i].ObterDados());
+}
+}
+}
+
+class TesteConta
+{
+static void Main()
+{
+Conta c1 = new Conta("João", 1, 1000,
+new Cartao("1111", "12/28"));
+
+Conta c2 = new Conta("Maria", 2, 2000,
+new Cartao("2222", "10/27"));
+
+Conta c3 = new Conta("Carlos", 3, 1500,
+new Cartao("3333", "08/26"));
+
+c1.Depositar(500);
+c1.SacarComCartao("1111", "12/28", 200);
+
+c2.Sacar(300);
+c2.Depositar(1000);
+
+c3.SacarComCartao("3333", "08/26", 100);
+
+Conta[] contas = { c1, c2, c3 };
+
+foreach (Conta c in contas)
+{
+Console.WriteLine("\nConta: " + c.ObterNumero());
+Console.WriteLine("Titular: " + c.ObterNomeCliente());
+Console.WriteLine("Saldo: " + c.ObterSaldo());
+Console.WriteLine("Extrato:");
+c.ExibirExtrato();
+}
+}
+}
+
+
